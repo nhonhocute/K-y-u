@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Mời Kỷ Yếu - 3M17</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden; /* Chặn cuộn tự do để tạo cảm giác 2 trang tách biệt */
+            background-color: #fffdf9;
+        }
+
+        /* Container bao quanh cả 2 trang */
+        .main-container {
+            height: 100vh;
+            transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); /* Hiệu ứng trượt mượt */
+        }
+
+        section {
+            height: 100vh; /* Mỗi trang chiếm đúng 1 màn hình */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Trang 1: Rực rỡ */
+        .hero {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffffff 50%, #e6f7ff 100%);
+            text-align: center;
+        }
+
+        /* Trang 2: Nhẹ nhàng */
+        #details {
+            background-color: #fffdf9;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 230, 150, 0.3);
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .content {
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem); /* Co giãn theo màn hình */
+            color: #d4a373;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #99af8e;
+        }
+
+        .invitation-card {
+            max-width: 500px;
+            width: 85%;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(212, 163, 115, 0.1);
+            text-align: center;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin-top: 30px;
+            background-color: #d4a373;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover { transform: scale(1.05); background-color: #bc8a5f; }
+
+        .info-item strong { display: block; color: #d4a373; margin-top: 15px; }
+
+        /* Lớp học 3M17 footer */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container" id="main">
+        <section class="hero">
+            <div class="circle" style="width: 300px; height: 300px; top: -50px; left: -50px;"></div>
+            <div class="content">
+                <h1>Nắng Hạ Cuối</h1>
+                <p class="subtitle">Lưu giữ mảnh ghép thanh xuân</p>
+                <p style="color: #888;">3M gửi tới tất cả những người là một phần thành xuân</p>
+                <button class="btn" onclick="nextPage()">Mở thư mời ✨</button>
+            </div>
+        </section>
+
+        <section id="details">
+            <div class="invitation-card">
+                <h2 style="font-family: 'Playfair Display'; color: #555; margin-bottom: 5px;">THƯ MỜI KỶ YẾU</h2>
+                <small style="color: #99af8e; letter-spacing: 2px;">MEMORIES OF 3M17</small>
+                <hr style="width: 30px; border: 0.5px solid #d4a373; margin: 20px auto;">
+
+                <div class="profile-section">
+                    <img src="https://drive.google.com/file/d/1KmSDWNu1IP6Tr2lgUPcUMpUuFo2QDG_Y/view?usp=sharing" alt="Nguyễn Thanh Minh" class="profile-img">
+                    <span class="profile-name">Nguyễn Thanh Minh</span>
+                </div>
+
+                <hr style="width: 30px; border: 0.5px solid #d4a373; margin: 15px auto;">
+                <div class="info-item">
+                    <strong>THỜI GIAN</strong>
+                    <span>10:30 AM | 30.04.2026</span>
+                </div>
+                <div class="info-item">
+                    <strong>ĐỊA ĐIỂM</strong>
+                    <span>Sân trường THPT Chuyên Hà Tĩnh</span>
+                </div>
+
+                <p style="font-style: italic; margin-top: 30px; font-size: 0.9rem; color: #777;">
+                    "Chúng ta của năm ấy, rực rỡ dưới ánh nắng mặt trời."
+                </p>
+
+                <button class="btn" style="background: none; color: #d4a373; box-shadow: none; font-size: 0.8rem;" onclick="prevPage()">← Quay lại</button>
+            </div>
+            <footer>© Made with 3M17</footer>
+        </section>
+    </div>
+
+    <script>
+        // Hàm điều khiển chuyển trang
+        function nextPage() {
+            document.getElementById('main').style.transform = 'translateY(-100vh)';
+        }
+
+        function prevPage() {
+            document.getElementById('main').style.transform = 'translateY(0)';
+        }
+    </script>
+
+</body>
+</html>
